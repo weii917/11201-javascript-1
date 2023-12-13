@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <title>Document</title>
+    <style>
+        .box {
+            width: 600px;
+            height: 400px;
+            display: flex;        
+            
+        }
+        .item{
+            width: 200px;
+            height: 200px;
+            margin-left: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="box" >
+                    <div class="item bg-danger" id="myBox">
+
+                    </div>
+                    <div class="item bg-danger" id="myBox">
+
+                    </div>
+                    <div class="item bg-danger" id="myBox">
+
+                    </div>
+
+                </div>
+
+            </div>
+            <div class="col">
+                <button type="button" class="btn btn-success" id="btnSuccess">click</button>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        let btnSuccess = document.getElementById('btnSuccess')
+        let myBox = document.getElementById('myBox')
+        btnSuccess.addEventListener('click',function(){
+            myBox.setAttribute('class',"item bg-success");
+        })
+        // setTimeout(function () {
+        //     alert('hello');
+        // }, 3000);
+    </script>
+</body>
+
+</html>
