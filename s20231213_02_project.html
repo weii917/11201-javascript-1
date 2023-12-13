@@ -13,14 +13,67 @@
     <style>
         .box {
             width: 600px;
-            height: 400px;
-            display: flex;        
-            
+            height: 300px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: auto;
+            background-color: lightslategray;
+            border-radius: 20px;
+            margin-bottom: 50px;
+
+
         }
-        .item{
+
+        .item {
             width: 200px;
             height: 200px;
             margin-left: 10px;
+            margin-right: 10px;
+
+        }
+
+        img {
+            width: 600px;
+            height: 400px;
+
+
+        }
+
+        .walk {
+            position: relative;
+            animation-name: walk;
+            animation-duration: 6s;
+        }
+
+        .walk-in {
+            position: relative;
+            animation-name: walk-in;
+            animation-duration: 3s;
+        }
+
+        @keyframes walk {
+            0% {
+                left: 0px;
+                top: 0px;
+            }
+
+            100% {
+                left: 1200px;
+                top: 0px;
+            }
+        }
+
+        @keyframes walk-in {
+            0% {
+                left: -600px;
+                top: 0px;
+            }
+
+            100% {
+                left: 0px;
+                top: 0px;
+            }
         }
     </style>
 </head>
@@ -28,37 +81,77 @@
 <body>
     <div class="container">
         <div class="row">
-            <div class="col">
-                <div class="box" >
-                    <div class="item bg-danger" id="myBox">
+            <div class="col-8">
+                <div class="box mt-5">
+                    <div class="item bg-danger rounded-circle" id="myBox1">
 
                     </div>
-                    <div class="item bg-danger" id="myBox">
+                    <div class="item bg-danger rounded-circle" id="myBox2">
 
                     </div>
-                    <div class="item bg-danger" id="myBox">
+                    <div class="item bg-danger rounded-circle" id="myBox3">
 
                     </div>
 
                 </div>
 
             </div>
+            <div class="col-4">
+                <button type="button" class="btn btn-success mt-5" id="btnSuccess">click</button>
+            </div>
+        </div>
+        <div class="row">
             <div class="col">
-                <button type="button" class="btn btn-success" id="btnSuccess">click</button>
+                <img id="walk"
+                    src="https://images.unsplash.com/photo-1541580696095-f37f93131a92?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                    alt="">
             </div>
         </div>
     </div>
 
 
     <script>
-        let btnSuccess = document.getElementById('btnSuccess')
-        let myBox = document.getElementById('myBox')
-        btnSuccess.addEventListener('click',function(){
-            myBox.setAttribute('class',"item bg-success");
+        function initFun() {
+            btnSuccess.setAttribute('class', "btn btn-success d-block");
+            walk.setAttribute('class', "d-none");
+
+        }
+        let btnSuccess = document.getElementById('btnSuccess');
+        let myBox1 = document.getElementById('myBox1');
+        let myBox2 = document.getElementById('myBox2');
+        let myBox3 = document.getElementById('myBox3');
+        let walk = document.getElementById('walk');
+        btnSuccess.addEventListener('click', function () {
+            // myBox1.setAttribute('class',"item bg-success");
+            btnSuccess.setAttribute('class', "btn btn-success d-none");
+
+            setTimeout(function () {
+                myBox1.setAttribute('class', "item bg-success rounded-circle");
+            }, 2500);
+            setTimeout(function () {
+                myBox2.setAttribute('class', "item bg-success rounded-circle");
+            }, 3000);
+            setTimeout(function () {
+                myBox3.setAttribute('class', "item bg-success rounded-circle");
+            }, 3500);
+            setTimeout(function () {
+                walk.setAttribute('class', "walk");
+            }, 5000);
+
+            setTimeout(function () {
+                myBox1.setAttribute('class', "item bg-danger rounded-circle");
+                myBox2.setAttribute('class', "item bg-danger rounded-circle");
+                myBox3.setAttribute('class', "item bg-danger rounded-circle");
+                walk.setAttribute('class', " ");
+                initFun();
+                setTimeout(function () {
+                    walk.setAttribute('class', "walk-in");
+                }, 4000);
+
+            }, 10000);
         })
-        // setTimeout(function () {
-        //     alert('hello');
-        // }, 3000);
+
+
     </script>
 </body>
 
