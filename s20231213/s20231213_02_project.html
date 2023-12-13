@@ -12,7 +12,7 @@
     <title>Document</title>
     <style>
         .my-container {
-            background-color: rgba(202, 235, 255, 0.2);
+            /* background-color: rgba(202, 235, 255, 0.2); */
             position: relative;
             height: 90vh;
             overflow: hidden;
@@ -73,15 +73,15 @@
             }
 
             25% {
-                bottom: 50px;
+                bottom: 10%;
             }
 
             50% {
-                bottom: 75px;
+                bottom: 30%;
             }
 
             75% {
-                bottom: 25px;
+                bottom: 50%;
             }
 
             100% {
@@ -126,12 +126,12 @@
 
             </div>
             <div class="col-4">
-                <button type="button" class="btn btn-success mt-5  btn-lg" id="btnSuccess">Start</button>
+                <button type="button" class="btn btn-primary mt-5  btn-lg" id="btnSuccess">Start</button>
             </div>
         </div>
         <div class="row">
             <div class="col">
-                <img id="walk" class="myImg" src="./img/giphy.gif" alt="">
+                <img id="walk" class="myImg" src="./img/giphy01.gif" alt="">
             </div>
         </div>
     </div>
@@ -158,16 +158,16 @@
 
             setTimeout(function () {
                 myBox1.setAttribute('class', "item bg-success rounded-circle");
-            }, 2500);
+            }, 1500);
             setTimeout(function () {
                 myBox2.setAttribute('class', "item bg-success rounded-circle");
-            }, 3000);
+            }, 2000);
             setTimeout(function () {
                 myBox3.setAttribute('class', "item bg-success rounded-circle");
-            }, 3500);
+            }, 2500);
             setTimeout(function () {
                 walk.setAttribute('class', "walk");
-            }, 5000);
+            }, 3000);
 
             setTimeout(function () {
                 // myBox1.setAttribute('class', "item bg-danger rounded-circle");
@@ -188,7 +188,7 @@
                 //     walk.setAttribute('class', "walk-in");
                 // }, 4000);
 
-            }, 10000);
+            }, 7000);
         })
 
 
