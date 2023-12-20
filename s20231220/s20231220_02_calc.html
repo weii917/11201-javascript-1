@@ -59,12 +59,15 @@
                     return result;
 
                 },
-                divFun: function () {
-                    let result = this.num1 / this.num2;
-                    console.log('num1 / num2 = ', result);
-                    return result;
+                // divFun: function () {
+                //     let result = this.num1 / this.num2;
+                //     console.log('num1 / num2 = ', result);
+                //     return result;
 
-                }
+                // }
+                // 箭頭函式不能用this代表此obj，這裡的this會抓到window
+                divFun: () => calObj.num1 / calObj.num2
+
             }
             // 綁定
             let num1 = document.getElementById('num1');
