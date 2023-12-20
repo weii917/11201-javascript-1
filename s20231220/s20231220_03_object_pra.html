@@ -31,7 +31,7 @@
         <div class="row">
             <div class="col">
                 <select id="myOpt" class="form-select form-select-lg mb-3" aria-label="Large select example">
-                    <option selected>感受如何?</option>
+                    <option selected>心情如何?</option>
                     <option value="happy">開心</option>
                     <option value="sad">難過</option>
                     <option value="angry">生氣</option>
@@ -40,8 +40,8 @@
         </div>
         <div class="row">
             <div class="col">
-                <div id="mySpan" class="alert alert-primary" role="alert">
-                    A simple primary alert—check it out!
+                <div id="myEmo" class="alert alert-primary" role="alert">
+                    心情如何?
                 </div>
                 <div class="d-grid gap-2">
                     <!-- <button class="btn btn-primary" type="button">Button</button> -->
@@ -53,8 +53,7 @@
 
     <script>
 
-        // init data 
-
+        // init data ，放屬性、function
         const obj = {
             name: 'name',
             happyFun: function () {
@@ -79,7 +78,7 @@
         let name = document.getElementById('name');
         let myOpt = document.getElementById('myOpt');
         let myBtn = document.getElementById('myBtn');
-        let mySpan = document.getElementById('mySpan');
+        let myEmo = document.getElementById('myEmo');
         // console.log(name);
         // console.log(myOpt);
         // console.log(myBtn);
@@ -87,28 +86,32 @@
         // 動作
 
         myBtn.addEventListener('click', function () {
+            // 存取輸入的值
+            let myOptValue = myOpt.value;            
+            let nameValue = name.value;         
 
-            let myOptValue = myOpt.value;
-            let nameValue = name.value;
-            console.log(nameValue, myOptValue);
+            console.log(nameValue, myOptValue);  
+            // 輸入的值放進obj物件name   
             obj.name = nameValue;
+            // 因switch裡每個都要用getResult，所以宣告在外面並給空值
+            // 用來存取obj裡function執行結果
             let getResult = "";
 
             switch (myOptValue) {
                 case 'happy':
                     getResult = obj.happyFun();
-                    mySpan.innerText = getResult;
-                    mySpan.setAttribute('class','alert alert-warning')
+                    myEmo.innerText = getResult;
+                    myEmo.setAttribute('class','alert alert-warning')
                     break;
                 case 'sad':
                     getResult = obj.sadFun();
-                    mySpan.innerText = getResult;
-                    mySpan.setAttribute('class','alert alert-dark')
+                    myEmo.innerText = getResult;
+                    myEmo.setAttribute('class','alert alert-dark')
                     break;
                 case 'angry':
                     getResult = obj.angryFun();
-                    mySpan.innerText = getResult;
-                    mySpan.setAttribute('class','alert alert-danger')
+                    myEmo.innerText = getResult;
+                    myEmo.setAttribute('class','alert alert-danger')
                     break;
                 default:
                 break;
