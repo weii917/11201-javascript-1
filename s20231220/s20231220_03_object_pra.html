@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+    <style>
+        .w-500 {
+            width: 500px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container w-500">
+        <div class="row">
+            <div class="col mt-5">
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="inputGroup-sizing-default">Name</span>
+                    <input id="name" type="text" class="form-control" aria-label="Sizing example input"
+                        aria-describedby="inputGroup-sizing-default">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <select id="myOpt" class="form-select form-select-lg mb-3" aria-label="Large select example">
+                    <option selected>感受如何?</option>
+                    <option value="happy">開心</option>
+                    <option value="sad">難過</option>
+                    <option value="angry">生氣</option>
+                </select>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <div id="mySpan" class="alert alert-primary" role="alert">
+                    A simple primary alert—check it out!
+                </div>
+                <div class="d-grid gap-2">
+                    <!-- <button class="btn btn-primary" type="button">Button</button> -->
+                    <button id="myBtn" class="btn btn-primary" type="button">Sumbit</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+
+        // init data 
+
+        const obj = {
+            name: 'name',
+            happyFun: function () {
+                let result = `Hi ${this.name} 現在心情開心`;
+                return result;
+                console.log(text);
+            },
+            sadFun: function () {
+                let result = `Hi ${this.name} 現在心情難過`;
+                return result;
+
+                console.log(text);
+            },
+            angryFun: function () {
+                let result = `Hi ${this.name} 現在心情生氣`;
+                return result;
+
+                console.log(text);
+            }
+        }
+        // 綁定
+        let name = document.getElementById('name');
+        let myOpt = document.getElementById('myOpt');
+        let myBtn = document.getElementById('myBtn');
+        let mySpan = document.getElementById('mySpan');
+        // console.log(name);
+        // console.log(myOpt);
+        // console.log(myBtn);
+        // console.log(mySpan);
+        // 動作
+
+        myBtn.addEventListener('click', function () {
+
+            let myOptValue = myOpt.value;
+            let nameValue = name.value;
+            console.log(nameValue, myOptValue);
+            obj.name = nameValue;
+            let getResult = "";
+
+            switch (myOptValue) {
+                case 'happy':
+                    getResult = obj.happyFun();
+                    mySpan.innerText = getResult;
+                    mySpan.setAttribute('class','alert alert-warning')
+                    break;
+                case 'sad':
+                    getResult = obj.sadFun();
+                    mySpan.innerText = getResult;
+                    mySpan.setAttribute('class','alert alert-dark')
+                    break;
+                case 'angry':
+                    getResult = obj.angryFun();
+                    mySpan.innerText = getResult;
+                    mySpan.setAttribute('class','alert alert-danger')
+                    break;
+                default:
+                break;
+            }
+
+        })
+
+
+    </script>
+</body>
+
+</html>
