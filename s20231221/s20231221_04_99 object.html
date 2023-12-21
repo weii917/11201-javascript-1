@@ -10,11 +10,11 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
         crossorigin="anonymous"></script>
-        <style>
-            .w-500{
-                width: 500px;
-            }
-        </style>
+    <style>
+        .w-500 {
+            width: 500px;
+        }
+    </style>
 </head>
 
 <body>
@@ -38,7 +38,7 @@
     <div class="container mt-5">
         <div class="row">
             <div class="col text-center">
-                <div id="box"  class="alert alert-light" role="alert"></div>
+                <div id="box" class="alert alert-light" role="alert"></div>
             </div>
         </div>
     </div>
@@ -59,15 +59,16 @@
 
                     // 把三個變數串起來成一行字串，外面i進來執行乘法九次，串成一到九的乘法
                     text += `${tmpI} * ${tmpJ} = <span class="text-danger">${tmpResult}</span > | `;
+                        
 
                 }
                 // 單行，畫面只會印出最後一個結果的text也就是9的乘法
-                // 再把它串起來放在變數裡
-                console.log('text', text);
+                // 再把text的每個結果串起來放在變數裡，才是所有的結果
+                // console.log('text', text);
                 resultText += `${text} <br>`;
 
             }
-            console.log('resultText', resultText);
+            // console.log('resultText', resultText);
 
             box.innerHTML = resultText;
 
@@ -78,9 +79,12 @@
         let num2Input = document.getElementById('num2');
         let myBtn = document.getElementById('myBtn');
 
-
+        // init 首次進入才會有num1 num2
         let num1 = 9;
         let num2 = 9;
+        // init 首次進入畫面
+        for99Fun();
+        // 當按下去num1 與 num2才會有輸入的值，轉成數字存進去，執行for99Fun
         myBtn.addEventListener('click', function () {
             num1 = Number(num1Input.value);
             num2 = Number(num2Input.value);
@@ -88,8 +92,7 @@
         })
 
         console.log(num1, num2);
-        // init 首次進入
-        for99Fun();
+
 
     </script>
 </body>
