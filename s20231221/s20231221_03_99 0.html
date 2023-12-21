@@ -23,23 +23,39 @@
     </div>
 
     <script>
+        // 寫迴圈最重要的是 先看每一個 i 是多少
         let box = document.getElementById('box');
+        // test 怎麼補零
+        let tmp = 5;
+        let changeTmp = tmp.toString().padStart(2, '0');
+        console.log('tmp', tmp);
+        console.log('tmp typeof', typeof (tmp));
+        console.log('changeTmp', changeTmp);
+        console.log('changeTmp typeof', typeof (changeTmp));
+
         resultText = "";
 
         for (let i = 1; i <= 9; i++) {
             let text = "";
             for (let j = 1; j <= 9; j++) {
 
-                text += `${i} * ${j} = ${i * j}`;
+                // 讓i j，i*j轉換成string並補0存到變數
+                let tmpI = i.toString().padStart(2, '0');
+                let tmpJ = j.toString().padStart(2, '0');
+                let tmpResult = (i * j).toString().padStart(2, '0');
+                // console.log('tmpI', tmpI, 'tmpJ', tmpJ, 'tmpResult', tmpResult);
+
+                // 把三個變數串起來成一行字串，外面i進來執行乘法九次，串成一到九的乘法
+                text += `${tmpI} * ${tmpJ} = ${tmpResult} | `;
 
             }
-            // 單行，所以畫面只會印出最後一個結果的text
+            // 單行，畫面只會印出最後一個結果的text也就是9的乘法
             // 再把它串起來放在變數裡
-            console.log('text',text);
+            console.log('text', text);
             resultText += `${text} <br>`;
 
         }
-        console.log('resultText',resultText);
+        console.log('resultText', resultText);
 
         box.innerHTML = resultText;
 

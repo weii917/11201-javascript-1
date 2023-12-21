@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+        <style>
+            .w-500{
+                width: 500px;
+            }
+        </style>
+</head>
+
+<body>
+    <div class="container mt-5 w-500">
+        <div class="row mt-2">
+            <div class="col">
+                <input type="text" class="form-control" value="9" name="num1" id="num1">
+            </div>
+            <div class="col">
+                <input type="text" class="form-control" value="9" name="num2" id="num2">
+            </div>
+        </div>
+        <div class="row mt-3">
+            <div class="col">
+                <div class="d-grid gap-2">
+                    <button class="btn btn-primary" type="button" id="myBtn">Button</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col text-center">
+                <div id="box"  class="alert alert-light" role="alert"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function for99Fun() {
+            resultText = "";
+
+            for (let i = 1; i <= num1; i++) {
+                let text = "";
+                for (let j = 1; j <= num2; j++) {
+
+                    // 讓i j，i*j轉換成string並補0存到變數
+                    let tmpI = i.toString().padStart(2, '0');
+                    let tmpJ = j.toString().padStart(2, '0');
+                    let tmpResult = (i * j).toString().padStart(2, '0');
+                    // console.log('tmpI', tmpI, 'tmpJ', tmpJ, 'tmpResult', tmpResult);
+
+                    // 把三個變數串起來成一行字串，外面i進來執行乘法九次，串成一到九的乘法
+                    text += `${tmpI} * ${tmpJ} = <span class="text-danger">${tmpResult}</span > | `;
+
+                }
+                // 單行，畫面只會印出最後一個結果的text也就是9的乘法
+                // 再把它串起來放在變數裡
+                console.log('text', text);
+                resultText += `${text} <br>`;
+
+            }
+            console.log('resultText', resultText);
+
+            box.innerHTML = resultText;
+
+        }
+        // 寫迴圈最重要的是 先看每一個 i 是多少
+        let box = document.getElementById('box');
+        let num1Input = document.getElementById('num1');
+        let num2Input = document.getElementById('num2');
+        let myBtn = document.getElementById('myBtn');
+
+
+        let num1 = 9;
+        let num2 = 9;
+        myBtn.addEventListener('click', function () {
+            num1 = Number(num1Input.value);
+            num2 = Number(num2Input.value);
+            for99Fun();
+        })
+
+        console.log(num1, num2);
+        // init 首次進入
+        for99Fun();
+
+    </script>
+</body>
+
+</html>
