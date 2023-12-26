@@ -18,15 +18,31 @@
 
         let newData = [];
 
+        // 重複去除，indexOf(value)只會顯示第一次找到的索引如果與當前index相等就放進newData，所以後面重複地都不會算到
+        newData = data.filter(function (value, index, array) {
+            return array.indexOf(value) === index;
+        });
+        console.log('newData', newData);
+
+        // indexOf value找key
+        const fruits = ["Apple", "Orange", "Mango", "Mango"];
+        let position = fruits.indexOf("Mango");//2
+        console.log('position', position);
+
+        //find 找第一個
+        // let first = data.find(value=>{
+        //     return value > 5;
+        // })
+        // console.log('first',first);
         // reduce 做總和
-        let sum = 0;
-        // reduce可以初始設定total為多少，這裡設1000
-        sum = data.reduce(function (total, value, index){
-            console.log('total',total);
-            console.log('value',value);
-            return sum= total + value;
-        },1000)
-        console.log('sum',sum);
+        // let sum = 0;
+        // // reduce可以初始設定total為多少，這裡設1000
+        // sum = data.reduce(function (total, value, index){
+        //     console.log('total',total);
+        //     console.log('value',value);
+        //     return sum= total + value;
+        // },1000)
+        // console.log('sum',sum);
 
         // foreach 做總和
 
