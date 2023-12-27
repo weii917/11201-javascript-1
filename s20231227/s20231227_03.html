@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+    <div class="container mt-3">
+        <h2>Shopping</h2>
+        <p>The .table class adds basic styling (light padding and horizontal dividers) to a table:</p>
+        <table class="table">
+            <thead>
+                <tr class="align-middle text-center">
+                    <th>產品</th>
+                    <th>單價</th>
+                    <th>數量</th>
+                    <th>總價</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="align-middle text-center">
+                    <td>
+                        <h2>咖啡</h2>
+                        <p class="align-middle"><img
+                                src="https://images.unsplash.com/photo-1541167760496-1628856ab772?q=250&w=250&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                                alt=""></p>
+                    </td>
+                    <td><input type="number" class="form-control" name="" id="item1Price"></td>
+                    <td><input type="number" class="form-control" name="" id="item1Num"></td>
+                    <td><input type="number" class="form-control" name="" id="item1Total"></td>
+                </tr>
+            </tbody>
+        </table>
+        
+            <div class="row">
+                <div class="">
+                    <div class="d-grid gap-2  justify-content-end">
+                        <button class="btn btn-primary myBtn" id="myBtn" type="button">滿五百打八折</button>
+                    </div>
+                </div>
+                <!-- <div class="col-6">
+                    <div class="d-grid gap-2">
+                        <button class="btn btn-warning myBtn2" type="reset">Button2</button>
+                    </div>
+                </div> -->
+            </div>
+      
+    </div>
+
+    <script>
+        const item1Price = document.getElementById('item1Price');
+        const item1Num = document.getElementById('item1Num');
+        const item1Total = document.getElementById('item1Total');
+        const myBtn = document.getElementById('myBtn');
+        // console.log('item1Price', item1Price);
+        // console.log('item1Num', item1Num);
+        // console.log('item1Total', item1Total);
+        let item1PriceValue = 0;
+        let item1NumValue = 0;
+        let sum = 0;
+
+
+        item1Price.addEventListener('change', function () {
+            console.log('item1Price change', item1Price.value);
+            item1PriceValue = Number(item1Price.value);
+
+        })
+        item1Num.addEventListener('change', function () {
+            console.log('item1Num change', item1Num.value);
+            item1NumValue = Number(item1Num.value);
+        })
+
+        item1Total.addEventListener('click', function () {
+            sum = item1PriceValue * item1NumValue;
+            // console.log('sum:', sum);
+            // console.log('sum type of', typeof (sum));
+            item1Total.value = sum;
+        })
+
+        myBtn.addEventListener('click', function () {
+            if (sum > 500) {
+                sum = sum * 0.8;
+                item1Total.value = Math.round(sum);
+
+            }
+        })
+
+
+    </script>
+</body>
+
+</html>
