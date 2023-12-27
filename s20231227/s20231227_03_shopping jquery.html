@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <!--input裡的 readonly讓用戶只能讀取 -->
+    <div class="container mt-3">
+        <h2>Shopping</h2>
+        <p>The .table class adds basic styling (light padding and horizontal dividers) to a table:</p>
+        <table class="table">
+            <thead>
+                <tr class="align-middle text-center">
+                    <th>產品</th>
+                    <th>單價</th>
+                    <th>數量</th>
+                    <th>總價</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="align-middle text-center">
+                    <td>
+                        <h4>拿鐵</h4>
+                        <p class="align-middle"><img
+                                src="https://images.unsplash.com/photo-1541167760496-1628856ab772?q=250&w=250&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                                alt=""></p>
+                    </td>
+                    <td><input type="number" class="form-control text-center" name="" id="item1Price" value="160"></td>
+                    <td><input type="number" class="form-control text-center" name="" id="item1Num" value="1"></td>
+                    <td><input type="number" class="form-control text-center" name="" id="item1Total" readonly></td>
+                </tr>
+                <tr class="align-middle text-center">
+                    <td>
+                        <h4>美式</h4>
+                        <p class="align-middle"><img
+                                src="https://images.unsplash.com/photo-1509785307050-d4066910ec1e?q=250&w=250&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                                alt=""></p>
+                    </td>
+                    <td><input type="number" class="form-control text-center" name="" id="item2Price" value="100"></td>
+                    <td><input type="number" class="form-control text-center" name="" id="item2Num" value="1"></td>
+                    <td><input type="number" class="form-control text-center" name="" id="item2Total" readonly></td>
+                </tr>
+                <tr class="align-middle text-center">
+                    <td>
+                        <h4>摩卡</h4>
+                        <p class="align-middle"><img
+                                src="https://images.unsplash.com/photo-1473923377535-0002805f57e8?q=250&w=250&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                                alt=""></p>
+                    </td>
+                    <td><input type="number" class="form-control text-center" name="" id="item3Price" value="160"></td>
+                    <td><input type="number" class="form-control text-center" name="" id="item3Num" value="1"></td>
+                    <td><input type="number" class="form-control text-center" name="" id="item3Total" readonly></td>
+                </tr>
+                <tr class="align-middle text-center">
+                    <td>
+                        <h4>總和</h4>
+                    </td>
+                    <td colspan="2"></td>
+                    <td>
+                        <h4><span id="resultSpan" style="color:red;"></span></h4>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+
+        <div class="row">
+            <div class="">
+                <div class="d-grid gap-2  justify-content-end">
+                    <button class="btn btn-primary myBtn" id="myBtn" type="button">送出(滿五百打八折)</button>
+                </div>
+            </div>
+            <!-- <div class="col-6">
+                    <div class="d-grid gap-2">
+                        <button class="btn btn-warning myBtn2" type="reset">Button2</button>
+                    </div>
+                </div> -->
+        </div>
+
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        $(function () {
+            function item1Fun() {
+                let item1PriceValue = Number(item1Price.val());
+                let item1NumValue = Number(item1Num.val());
+                let resultItem1Total = item1PriceValue * item1NumValue;
+                if (item1PriceValue < 0 || item1NumValue < 0) {
+                    alert('請輸入正確數值');
+                    item1Num.val(0);
+                    return false;
+                }
+                item1Total.val(resultItem1Total);
+            }
+            function item2Fun() {
+                let item2PriceValue = Number(item2Price.val());
+                let item2NumValue = Number(item2Num.val());
+                let resultItem2Total = item2PriceValue * item2NumValue;
+                if (item2PriceValue < 0 || item2NumValue < 0) {
+                    alert('請輸入正確數值');
+                    item2Num.val(0);
+                    return false;
+                }
+                item2Total.val(resultItem2Total);
+            }
+            function item3Fun() {
+                let item3PriceValue = Number(item3Price.val());
+                let item3NumValue = Number(item3Num.val());
+                let resultItem3Total = item3PriceValue * item3NumValue;
+                if (item3PriceValue < 0 || item3NumValue < 0) {
+                    alert('請輸入正確數值');
+                    item3Num.val(0);
+                    return false;
+                }
+                item3Total.val(resultItem3Total);
+            }
+
+            const item1Price = $('#item1Price');
+            const item1Num = $('#item1Num');
+            const item1Total = $('#item1Total');
+            const item2Price = $('#item2Price');
+            const item2Num = $('#item2Num');
+            const item2Total = $('#item2Total');
+            const item3Price = $('#item3Price');
+            const item3Num = $('#item3Num');
+            const item3Total = $('#item3Total');
+            const myBtn = $('#myBtn');
+            const resultSpan = $('#resultSpan');
+
+            item1Fun();
+            item2Fun();
+            item3Fun();
+            item1Price.change(function (e) {
+                item1Fun();
+            })
+            item1Num.change(function (e) {
+                item1Fun();
+            })
+
+            item2Price.change(function (e) {
+                item2Fun();
+
+            })
+            item2Num.change(function (e) {
+                item2Fun();
+            })
+
+            item3Price.change(function (e) {
+                item3Fun();
+            })
+            item3Num.change(function (e) {
+                item3Fun();
+            })
+
+            myBtn.click(function (e) {
+                let getItem1Total = Number(item1Total.val());
+                let getItem2Total = Number(item2Total.val());
+                let getItem3Total = Number(item3Total.val());
+                let sum = getItem1Total + getItem2Total + getItem3Total;
+
+                if (sum > 500) {
+                    sum = sum * 0.8;
+                }
+                console.log(sum);
+                resultSpan.text(sum);
+
+            })
+        })
+
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>
