@@ -10,18 +10,20 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
         crossorigin="anonymous"></script>
-        <style>
-            #box{
-                width:300px;
-                height: 300px;
-            }
-            .bg-pink{
-                background-color: lightpink;
-            }
-            .bg-blue{
-                background-color: lightblue;
-            }
-        </style>
+    <style>
+        #box {
+            width: 300px;
+            height: 300px;
+        }
+
+        .bg-pink {
+            background-color: lightpink !important;
+        }
+
+        .bg-blue {
+            background-color: lightblue;
+        }
+    </style>
 </head>
 
 <body>
@@ -29,7 +31,20 @@
     <!-- click印出 this是指此標籤 -->
     <!-- <button type="button" id="myBtn2" onclick="console.log('this',this);">myBtn2</button> -->
     <button type="button" id="myBtn2" onclick="myBtn2Fun(this);">myBtn2</button>
-    <div class="container">
+
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col">
+                <input type="text" name="" id="myInput" class="form-control">
+            </div>
+            <div class="col">
+                <input type="text" name="" id="myInput" class="form-control">
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container mt-5">
         <div class="row">
             <div class="col">
                 <div class="bg-blue" id="box"></div>
@@ -41,26 +56,38 @@
         function myBtn2Fun(abc) {
             console.log('myBtn2 ok 11');
             console.log('myBtn2 ok 12');
-            console.log('參數 ok ',abc);
+            console.log('參數 ok ', abc);
         }
 
         const myBtn = document.getElementById('myBtn');
+        const box = document.getElementById('box');
+        const myInput = document.getElementById('myInput');
 
-        myBtn.addEventListener('click', function (){
+        myBtn.addEventListener('click', function () {
             console.log('myBtn ok');
             console.log('myBtn ok1');
         })
 
-        // box how to use mouseenter and mouseout and you can change class so change style
-        box.addEventListener('mouseenter', function(){
+        // box how to use mouseenter and mouseout. can change class so change style
+        box.addEventListener('mouseenter', function () {
             console.log('box mouseenter ok');
             this.setAttribute('class', 'bg-pink');
-            
+
         })
-        box.addEventListener('mouseout', function(){
+        box.addEventListener('mouseout', function () {
             console.log('box moueout ok');
             this.setAttribute('class', 'bg-blue');
             alert('hello out pink BOX');
+        })
+
+        // form input focus點進會變粉色，點外blur
+        myInput.addEventListener('focus', function(){
+            console.log(('myInput focus'));
+            this.setAttribute('class', 'form-control bg-pink');
+        })
+        myInput.addEventListener('blur', function(){
+            console.log('myInput blur');
+            this.setAttribute('class', 'form-control bg-pink');
         })
     </script>
 </body>
