@@ -13,7 +13,7 @@
 </head>
 
 <body>
-
+    <!--input裡的 readonly讓用戶只能讀取 -->
     <div class="container mt-3">
         <h2>Shopping</h2>
         <p>The .table class adds basic styling (light padding and horizontal dividers) to a table:</p>
@@ -29,69 +29,162 @@
             <tbody>
                 <tr class="align-middle text-center">
                     <td>
-                        <h2>咖啡</h2>
+                        <h4>拿鐵</h4>
                         <p class="align-middle"><img
                                 src="https://images.unsplash.com/photo-1541167760496-1628856ab772?q=250&w=250&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                                 alt=""></p>
                     </td>
-                    <td><input type="number" class="form-control" name="" id="item1Price"></td>
-                    <td><input type="number" class="form-control" name="" id="item1Num"></td>
-                    <td><input type="number" class="form-control" name="" id="item1Total"></td>
+                    <td><input type="number" class="form-control text-center" name="" id="item1Price" value="160"></td>
+                    <td><input type="number" class="form-control text-center" name="" id="item1Num" value="1"></td>
+                    <td><input type="number" class="form-control text-center" name="" id="item1Total" readonly></td>
                 </tr>
+                <tr class="align-middle text-center">
+                    <td>
+                        <h4>美式</h4>
+                        <p class="align-middle"><img
+                                src="https://images.unsplash.com/photo-1509785307050-d4066910ec1e?q=250&w=250&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                                alt=""></p>
+                    </td>
+                    <td><input type="number" class="form-control text-center" name="" id="item2Price" value="100"></td>
+                    <td><input type="number" class="form-control text-center" name="" id="item2Num" value="1"></td>
+                    <td><input type="number" class="form-control text-center" name="" id="item2Total" readonly></td>
+                </tr>
+                <tr class="align-middle text-center">
+                    <td>
+                        <h4>摩卡</h4>
+                        <p class="align-middle"><img
+                                src="https://images.unsplash.com/photo-1473923377535-0002805f57e8?q=250&w=250&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                                alt=""></p>
+                    </td>
+                    <td><input type="number" class="form-control text-center" name="" id="item3Price" value="160"></td>
+                    <td><input type="number" class="form-control text-center" name="" id="item3Num" value="1"></td>
+                    <td><input type="number" class="form-control text-center" name="" id="item3Total" readonly></td>
+                </tr>
+                <tr class="align-middle text-center">
+                    <td>
+                        <h4>總和</h4>
+                    </td>
+                    <td colspan="2"></td>
+                    <td>
+                        <h4><span id="resultSpan" style="color:red;"></span></h4>
+                    </td>
+                </tr>
+
             </tbody>
         </table>
-        
-            <div class="row">
-                <div class="">
-                    <div class="d-grid gap-2  justify-content-end">
-                        <button class="btn btn-primary myBtn" id="myBtn" type="button">滿五百打八折</button>
-                    </div>
+
+        <div class="row">
+            <div class="">
+                <div class="d-grid gap-2  justify-content-end">
+                    <button class="btn btn-primary myBtn" id="myBtn" type="button">送出(滿五百打八折)</button>
                 </div>
-                <!-- <div class="col-6">
+            </div>
+            <!-- <div class="col-6">
                     <div class="d-grid gap-2">
                         <button class="btn btn-warning myBtn2" type="reset">Button2</button>
                     </div>
                 </div> -->
-            </div>
-      
+        </div>
+
     </div>
 
     <script>
+        function item1Fun() {
+            let item1PriceValue = Number(item1Price.value);
+            let item1NumValue = Number(item1Num.value);
+            let resultItem1Total = item1PriceValue * item1NumValue;
+            if (item1PriceValue < 0 || item1NumValue < 0) {
+                alert('請輸入正確數值');
+                item1Num.value = 0;
+                return false;
+
+            }
+            item1Total.value = resultItem1Total;
+        }
+        function item2Fun() {
+            let item2PriceValue = Number(item2Price.value);
+            let item2NumValue = Number(item2Num.value);
+            let resultItem2Total = item2PriceValue * item2NumValue;
+            if (item2PriceValue < 0 || item2NumValue < 0) {
+                alert('請輸入正確數值');
+                item2Num.value = 0;
+                return false;
+            }
+            item2Total.value = resultItem2Total;
+        }
+        function item3Fun() {
+            let item3PriceValue = Number(item3Price.value);
+            let item3NumValue = Number(item3Num.value);
+            let resultItem3Total = item3PriceValue * item3NumValue;
+            if (item3PriceValue < 0 || item3NumValue < 0) {
+                alert('請輸入正確數值');
+                item3Num.value = 0;
+                return false;
+            }
+            item3Total.value = resultItem3Total;
+        }
+
         const item1Price = document.getElementById('item1Price');
         const item1Num = document.getElementById('item1Num');
         const item1Total = document.getElementById('item1Total');
+        const item2Price = document.getElementById('item2Price');
+        const item2Num = document.getElementById('item2Num');
+        const item2Total = document.getElementById('item2Total');
+        const item3Price = document.getElementById('item3Price');
+        const item3Num = document.getElementById('item3Num');
+        const item3Total = document.getElementById('item3Total');
         const myBtn = document.getElementById('myBtn');
+        const resultSpan = document.getElementById('resultSpan');
         // console.log('item1Price', item1Price);
         // console.log('item1Num', item1Num);
         // console.log('item1Total', item1Total);
-        let item1PriceValue = 0;
-        let item1NumValue = 0;
-        let sum = 0;
-
+        
+        // 因預設input有值，初始化一載入畫面就執行function總和計算的值
+        item1Fun();
+        item2Fun();
+        item3Fun();
 
         item1Price.addEventListener('change', function () {
-            console.log('item1Price change', item1Price.value);
-            item1PriceValue = Number(item1Price.value);
+            // console.log('item1Price change', item1Price.value);
+            item1Fun();
 
         })
         item1Num.addEventListener('change', function () {
-            console.log('item1Num change', item1Num.value);
-            item1NumValue = Number(item1Num.value);
+            // console.log('item1Num change', item1Num.value);
+            item1Fun();
         })
 
-        item1Total.addEventListener('click', function () {
-            sum = item1PriceValue * item1NumValue;
-            // console.log('sum:', sum);
-            // console.log('sum type of', typeof (sum));
-            item1Total.value = sum;
+        item2Price.addEventListener('change', function () {
+            // console.log('item2Price change', item2Price.value);
+            item2Fun();
+
+        })
+        item2Num.addEventListener('change', function () {
+            // console.log('item2Num change', item2Num.value);
+            item2Fun();
+        })
+
+        item3Price.addEventListener('change', function () {
+            // console.log('item3Price change', item3Price.value);
+            item3Fun();
+        })
+        item3Num.addEventListener('change', function () {
+            // console.log('item3Num change', item3Num.value);
+            item3Fun();
         })
 
         myBtn.addEventListener('click', function () {
+            let getItem1Total = Number(item1Total.value);
+            let getItem2Total = Number(item2Total.value);
+            let getItem3Total = Number(item3Total.value);
+            let sum = getItem1Total + getItem2Total + getItem3Total;
+
             if (sum > 500) {
                 sum = sum * 0.8;
-                item1Total.value = Math.round(sum);
-
             }
+            console.log(sum);
+            resultSpan.innerText = sum;
+
         })
 
 
