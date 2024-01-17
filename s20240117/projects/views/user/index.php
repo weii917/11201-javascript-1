@@ -8,7 +8,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-       
         table {
             width: 80%;
             margin: 0 auto;
@@ -41,12 +40,16 @@
                 <th width="15%"> name</th>
                 <th>oprate</th>
             </tr>
-            <tr>
-                <td>1</td>
-                <td>amy</td>
-                <td></td>
-            </tr>
-            
+            <?php foreach ($variable as $key => $value) : ?>
+                <tr>
+                    <td>1</td>
+                    <td>amy</td>
+                    <td></td>
+                </tr>
+            <?php endforeach; ?>
+
+
+
         </table>
     </div>
 </body>
