@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <!-- css js -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+    <div class="container mx-auto mt-5 ">
+        <button class="btn btn-success text-center addbtn">add</button>
+        <div class="row text-center">
+            <div class="col-2">
+                ID
+            </div>
+            <div class="col-8">
+                Name
+
+            </div>
+            <div class="col-2">
+                Oprate
+            </div>
+        </div>
+        <div class="whole">
+
+            <div class="content">
+                <div class="row mt-2 text-center">
+                    <div class="col-2">
+                        <input class="my-input form-control text-center" type="text" name="" id="" value="1">
+
+                    </div>
+                    <div class="col-8">
+                        <input class="form-control text-center" type="text" name="" id="" value="amy">
+
+                    </div>
+                    <div class="col-2">
+                        <button type="button" class="my-clone btn btn-primary"><i class="fa-regular fa-copy"></i></button>
+                        <button class="my-del btn btn-danger text-center"><i class="fa-solid fa-trash"></i></button>
+
+                    </div>
+                </div>
+                <div class="row mt-2 text-center">
+                    <div class="col-2">
+                        <input class="my-input form-control text-center" type="text" name="" id="" value="2">
+
+                    </div>
+                    <div class="col-8">
+                        <input class="form-control text-center" type="text" name="" id="" value="bob">
+
+                    </div>
+                    <div class="col-2">
+                        <button type="button" class="my-clone btn btn-primary"><i class="fa-regular fa-copy"></i></button>
+                        <button class="my-del btn btn-danger text-center"><i class="fa-solid fa-trash"></i></button>
+
+                    </div>
+                </div>
+                <div class="row mt-2 text-center">
+                    <div class="col-2">
+                        <input class="my-input form-control text-center" type="text" name="" id="" value="3">
+
+                    </div>
+                    <div class="col-8">
+                        <input class="form-control text-center" type="text" name="" id="" value="cat">
+
+                    </div>
+                    <div class="col-2">
+                        <button type="button" class="my-clone btn btn-primary"><i class="fa-regular fa-copy"></i></button>
+                        <button class="my-del btn btn-danger text-center"><i class="fa-solid fa-trash"></i></button>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- jQuery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script>
+        $(document).ready(function () {
+            const addBtn = $(".addbtn");
+            const whole = $(".whole");
+            const myDel = $(".my-del");
+            const myInput = $(".myInput");
+            const myClone = $(".my-clone");
+            myDel.click(function () {
+                console.log('this', this);
+                // let thisClosest = $(this).closest(".row");
+                // myDel的上上一層
+                let thisClosest = $(this).parent().parent();
+                console.log(thisClosest);
+                thisClosest.remove();
+
+            })
+            addBtn.click(function () {
+                console.log('this', this);
+                // 最外層whole往內找row最後一層
+                let lastDiv = whole.find('.row').last();
+                console.log(lastDiv);
+                // 把最後一層clone(true)包含裡面有的function複製到.content裡的最後接下去
+                lastDiv.clone(true).appendTo(".content")
+
+            })
+
+            myClone.click(function () {
+                console.log('this', this);
+                // 找myClone最靠近的父層.row
+                let thisClosestRow = $(this).closest(".row");
+
+                console.log(thisClosestRow);
+                // 複製到.content裡的最後加下去
+                thisClosestRow.clone(true).appendTo(".content")
+
+            })
+        })
+
+    </script>
+</body>
+
+</html>
