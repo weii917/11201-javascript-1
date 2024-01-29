@@ -88,61 +88,8 @@
                         <button class="myDel btn btn-danger text-center"><i class="fa-solid fa-trash"></i></button>
                     </td>
                 </tr>
-                <tr class="align-middle text-center">
-        
-                    <td>
-
-                        <h4>美式</h4>
-                        <p class="align-middle"><img
-                                src="https://images.unsplash.com/photo-1509785307050-d4066910ec1e?q=250&w=250&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                                alt=""></p>
-                    </td>
-                    <td><input type="number" class="itemPrice form-control text-center" name="" data-price="100"
-                            value="100"></td>
-                    <td><input type="number" class="itemNum form-control text-center" name="" data-num="1" value="1">
-                    </td>
-                    <td><input type="number" class="itemTotal form-control text-center" name="" data-total="100"
-                            readonly></td>
-                    <td>
-                        <input type="text" class=" form-control text-center" name="" id="">
-                    </td>
-
-                    <td>
-                        <button type="button" class="myClone btn btn-primary"><i
-                                class="fa-regular fa-copy"></i></button>
-                        <button class="myDel btn btn-danger text-center"><i class="fa-solid fa-trash"></i></button>
-                    </td>
-
-                </tr>
-                <tr class="align-middle text-center">
-         
-                    <td>
-                        <h4>摩卡</h4>
-                        <p class="align-middle"><img
-                                src="https://images.unsplash.com/photo-1473923377535-0002805f57e8?q=250&w=250&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                                alt=""></p>
-                    </td>
-                    <td>
-                        <input type="number" class="itemPrice form-control text-center" name="" data-price="160"
-                            value="160">
-                    </td>
-                    <td>
-                        <input type="number" class="itemNum form-control text-center" name="" data-num="1" value="1">
-                    </td>
-                    <td>
-                        <input type="number" class="itemTotal form-control text-center" name="" data-total="160"
-                            readonly>
-                    </td>
-                    <td>
-                        <input type="text" class=" form-control text-center" name="" id="">
-                    </td>
-                    <td>
-                        <button type="button" class="myClone btn btn-primary"><i
-                                class="fa-regular fa-copy"></i></button>
-                        <button class="myDel btn btn-danger text-center"><i class="fa-solid fa-trash"></i></button>
-                    </td>
-
-                </tr> -->
+                
+              -->
 
 
             </tbody>
@@ -166,11 +113,7 @@
                     <button class="btn btn-primary myBtn" id="sumBtn" type="button">送出</button>
                 </div>
             </div>
-            <!-- <div class="col-6">
-                    <div class="d-grid gap-2">
-                        <button class="btn btn-warning myBtn2" type="reset">Button2</button>
-                    </div>
-                </div> -->
+
         </div>
 
     </div>
@@ -184,14 +127,15 @@
             // total
 
             function sumFun() {
-                console.log('sumBtn ok');
+                // console.log('sumBtn ok');
                 let myTotal = $('.myTotal');
                 let getMyTotalCount = myTotal.length;
                 console.log('myTotal', myTotal);
                 let sum = 0;
                 myTotal.each(function (index, value) {
-                    console.log('index', index);
-                    console.log('value', value);
+                    // console.log('index', index);
+                    // console.log('value', value);
+                    console.log('$(value).text() is', $(value).text());
                     sum = sum + Number($(value).text());
                 });
                 console.log('final sum', sum);
@@ -233,7 +177,7 @@
                 // 新增在此筆的下一個tr
                 nowTr.clone(true).insertAfter(nowTr);
                 sumFun();
-                
+
             }
             // 綁定
             const myClone = $(".myClone");
@@ -243,9 +187,6 @@
             const myBtn = $(".myBtn");
             const mySum = $('#mySum');
             const sumBtn = $('#sumBtn');
-
-
-
 
             // 執行
             sumBtn.click(function (e) {
@@ -286,8 +227,7 @@
                     <td>
                         <input type="number" class="quantity itemNum form-control text-center" name="" data-num="1" value="1">
                     </td>
-                    <td>
-                      
+                    <td>             
                         <span class="myTotal">${price}</span>
                     </td>
                     <td>
