@@ -33,9 +33,9 @@
         </div>
         <div class="row">
             <div class="col mt-3">
-                <button class="my-choose btn btn-success mx-2" data-id="4" data-name="起司蛋糕" data-price="160"
+                <button class="my-choose btn btn-success mx-2" data-id="4" data-name="起司蛋糕" data-price="180"
                     data-img="https://images.unsplash.com/photo-1473340186413-a68ba9c2564e?q=250&w=250&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D">起司蛋糕</button>
-                <button class="my-choose btn btn-success mx-2" data-id="5" data-name="鬆餅" data-price="100"
+                <button class="my-choose btn btn-success mx-2" data-id="5" data-name="鬆餅" data-price="120"
                     data-img="https://images.unsplash.com/photo-1562376552-0d160a2f238d?q=250&w=250&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D">鬆餅</button>
                 <button class="my-choose btn btn-success mx-2" data-id="6" data-name="冰淇淋" data-price="160"
                     data-img="https://images.unsplash.com/photo-1515037028865-0a2a82603f7c?q=250&w=250&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D">冰淇淋</button>
@@ -49,18 +49,19 @@
         <table class="table">
             <thead>
                 <tr class="align-middle text-center">
-                    <th width="7%">編號</th>
+                    <!-- <th width="7%">編號</th> -->
                     <th>產品</th>
                     <th>單價</th>
                     <th>數量</th>
                     <th>小計</th>
-                    <th> </th>
+                    <th>備註</th>
+                    <th width="15%">操作</th>
                 </tr>
             </thead>
             <tbody id="myItem">
 
-                <tr class="align-middle text-center">
-                    <td>1</td>
+                <!-- <tr class="align-middle text-center">
+                    
                     <td>
                         <h4>拿鐵</h4>
                         <p class="align-middle"><img
@@ -79,12 +80,16 @@
                             readonly>
                     </td>
                     <td>
+                        <input type="text" class="form-control text-center" name="" id="">
+                    </td>
+                    <td>
+                        <button type="button" class="myClone btn btn-primary"><i
+                                class="fa-regular fa-copy"></i></button>
                         <button class="myDel btn btn-danger text-center"><i class="fa-solid fa-trash"></i></button>
                     </td>
                 </tr>
                 <tr class="align-middle text-center">
-                    <td>2</td>
-
+        
                     <td>
 
                         <h4>美式</h4>
@@ -98,39 +103,56 @@
                     </td>
                     <td><input type="number" class="itemTotal form-control text-center" name="" data-total="100"
                             readonly></td>
-                    <td> <button class="myDel btn btn-danger text-center"><i class="fa-solid fa-trash"></i></button>
+                    <td>
+                        <input type="text" class=" form-control text-center" name="" id="">
+                    </td>
+
+                    <td>
+                        <button type="button" class="myClone btn btn-primary"><i
+                                class="fa-regular fa-copy"></i></button>
+                        <button class="myDel btn btn-danger text-center"><i class="fa-solid fa-trash"></i></button>
                     </td>
 
                 </tr>
                 <tr class="align-middle text-center">
-                    <td>3</td>
-
+         
                     <td>
                         <h4>摩卡</h4>
                         <p class="align-middle"><img
                                 src="https://images.unsplash.com/photo-1473923377535-0002805f57e8?q=250&w=250&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                                 alt=""></p>
                     </td>
-                    <td><input type="number" class="itemPrice form-control text-center" name="" data-price="160"
-                            value="160"></td>
-                    <td><input type="number" class="itemNum form-control text-center" name="" data-num="1" value="1">
+                    <td>
+                        <input type="number" class="itemPrice form-control text-center" name="" data-price="160"
+                            value="160">
                     </td>
-                    <td><input type="number" class="itemTotal form-control text-center" name="" data-total="160"
-                            readonly></td>
-                    <td> <button class="myDel btn btn-danger text-center"><i class="fa-solid fa-trash"></i></button>
+                    <td>
+                        <input type="number" class="itemNum form-control text-center" name="" data-num="1" value="1">
+                    </td>
+                    <td>
+                        <input type="number" class="itemTotal form-control text-center" name="" data-total="160"
+                            readonly>
+                    </td>
+                    <td>
+                        <input type="text" class=" form-control text-center" name="" id="">
+                    </td>
+                    <td>
+                        <button type="button" class="myClone btn btn-primary"><i
+                                class="fa-regular fa-copy"></i></button>
+                        <button class="myDel btn btn-danger text-center"><i class="fa-solid fa-trash"></i></button>
                     </td>
 
-                </tr>
+                </tr> -->
 
 
             </tbody>
             <tfoot>
                 <tr class="align-middle text-center">
-                    <td>
+                    
                     <td>
                         <h4>總和</h4>
                     </td>
-                    <td colspan="2"></td>
+                    <td colspan="4"></td>
                     <td>
                         <h4><span id="resultSpan" style="color:red;"></span></h4>
                     </td>
@@ -138,10 +160,10 @@
             </tfoot>
         </table>
 
-        <div class="row">
+        <div class="row mb-3">
             <div class="">
                 <div class="d-grid gap-2  justify-content-end">
-                    <button class="btn btn-primary myBtn" id="myBtn" type="button">送出(滿五百打八折)</button>
+                    <button class="btn btn-primary myBtn" id="myBtn" type="button">送出</button>
                 </div>
             </div>
             <!-- <div class="col-6">
@@ -159,6 +181,7 @@
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script>
         $(document).ready(function () {
+            // del 可全刪光
             function delFun(nowThis) {
                 console.log('nowThis', nowThis);
                 // myDel的上上一層
@@ -166,21 +189,58 @@
                 console.log(nowTr);
                 nowTr.remove();
             }
+            // 抓tr數量小於本頁面的多少不能刪除，至少留一筆
+            function delFunHave1(nowThis) {
+                console.log('del ok');
+                // 抓tr數量
+                let getTrCount = $('tr').length;
+                console.log('getTrCount', getTrCount);
+                // 如果tr <= 2 不能刪除
+                if (getTrCount > 3) {
+                    let nowTr = $(nowThis).parent().parent();
+                    nowTr.remove();
+                }
+            }
 
+            // clone
+            function cloneFun(nowThis) {
+                console.log('clone ok');
+                console.log('nowThis', nowThis);
+                // myClone的上上一層
+                let nowTr = $(nowThis).parent().parent();
+                console.log(nowTr);
+                // 新增在表格裡的最後一個
+                // nowTr.clone(true).appendTo("#myItem");
+                // 新增在此筆的下一個tr
+                nowTr.clone(true).insertAfter(nowTr);
+            }
+            // 綁定
+            const myClone = $(".myClone");
             const myDel = $(".myDel");
             const myItem = $("#myItem");
             const myChoose = $(".my-choose");
             const myBtn = $(".myBtn");
+            // 價格綁定
+            const itemPrice = $(".itemPrice");
+            const itemNum = $(".itemNum");
+            const itemTotal = $(".itemTotal");
 
-            myDel.click(function (e) {
+            // 執行
+            myClone.click(function (e) {
                 console.log('this', this);
 
+                cloneFun(this);
+
+            })
+            myDel.click(function (e) {
+                console.log('this', this);
                 delFun(this);
 
             })
 
-
             myChoose.click(function () {
+                calTotal(this);
+
                 console.log('this', this);
                 let id = $(this).data('id');
                 let name = $(this).data('name');
@@ -189,7 +249,7 @@
 
                 let content = `
                 <tr class="align-middle text-center">
-                    <td>${id}</td>
+                    
                     <td>
                         <h4>${name}</h4>
                         <p class="align-middle"><img
@@ -208,26 +268,79 @@
                             readonly>
                     </td>
                     <td>
+                        <input type="text" class=" form-control text-center"  name="" id="">
+                    </td>
+                    <td>
+                        <button type="button" class="myClone btn btn-primary"><i class="fa-regular fa-copy"></i></button>
                         <button class="myDel btn btn-danger text-center"><i class="fa-solid fa-trash"></i></button>
                     </td>
-                </tr>`;
+                </tr>
+                `;
+                // 最上層的新增品項
                 $("#myItem").append(content)
+                // 新增最後一個刪除添加刪除事件
                 addDelBtn = $('.myDel').last();
-
+                addCloneBtn = $('.myClone').last();
                 addDelBtn.click(function () {
                     delFun(this);
-
+                })
+                addCloneBtn.click(function () {
+                    cloneFun(this);
+                    calTotal(this);
                 })
 
             })
 
+            // start
+            function calTotal(nowthis){
+                 let tr = $(nowthis).closest('tr');
+                console.log('tr',tr);
+                let price = parseFloat(tr.find('.itemPrice').val());
+                let num = parseFloat(tr.find('.itemNum').val());
 
+                // 計算小計
+                let total = price * num;
+                tr.find('.itemTotal').val(total);
 
-            myBtn.click(function () {
-                console.log('this', this);
+                // 更新產品數據屬性
+                tr.data('subtotal', total);
 
+                // 計算總和
+                calculateGrandTotal();
+            }
+            myItem.on('input', '.itemNum, .itemPrice', function () {
+                calTotal(this);
+            });
 
-            })
+            // 計算所有小計的總和
+            function calculateGrandTotal() {
+                let grandTotal = 0;
+
+                // 遍歷每個產品，取得小計並相加
+                $('.itemTotal').each(function () {
+                    grandTotal += parseFloat($(this).val()) || 0;
+                });
+
+                // 顯示總和
+                $("#resultSpan").text(grandTotal);
+            }
+
+            // 送出按鈕點擊事件
+            // myBtn.click(function () {
+            //     console.log('this', this);
+
+            //     計算總和
+            //     calculateGrandTotal();
+            // });
+            // end
+            // 總和
+            // myBtn.click(function () {
+            //     console.log('this', this);
+            //     nowTr = $('.itemPrice').parent().parent();
+            //     console.log('nowTr', nowTr);
+            //     nowTr
+
+            // })
 
         })
 
