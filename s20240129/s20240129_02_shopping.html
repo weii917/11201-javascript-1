@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <!-- css js -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div class="container mt-3">
+        <div class="row">
+            <h2>Shopping</h2>
+            <!-- <p>The .table class adds basic styling (light padding and horizontal dividers) to a table:</p> -->
+            <div class="col mt-3">
+                <button class="my-choose btn btn-warning mx-2" data-id="1" data-name="拿鐵" data-price="160"
+                    data-img="https://images.unsplash.com/photo-1541167760496-1628856ab772?q=250&w=250&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D">拿鐵</button>
+                <button class="my-choose btn btn-warning mx-2" data-id="2" data-name="美式" data-price="100"
+                    data-img="https://images.unsplash.com/photo-1509785307050-d4066910ec1e?q=250&w=250&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D">美式</button>
+                <button class="my-choose btn btn-warning mx-2" data-id="3" data-name="摩卡" data-price="160"
+                    data-img="https://images.unsplash.com/photo-1473923377535-0002805f57e8?q=250&w=250&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D">摩卡</button>
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col mt-3">
+                <button class="my-choose btn btn-success mx-2" data-id="4" data-name="起司蛋糕" data-price="160"
+                    data-img="https://images.unsplash.com/photo-1473340186413-a68ba9c2564e?q=250&w=250&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D">起司蛋糕</button>
+                <button class="my-choose btn btn-success mx-2" data-id="5" data-name="鬆餅" data-price="100"
+                    data-img="https://images.unsplash.com/photo-1562376552-0d160a2f238d?q=250&w=250&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D">鬆餅</button>
+                <button class="my-choose btn btn-success mx-2" data-id="6" data-name="冰淇淋" data-price="160"
+                    data-img="https://images.unsplash.com/photo-1515037028865-0a2a82603f7c?q=250&w=250&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D">冰淇淋</button>
+
+            </div>
+        </div>
+
+    </div>
+    <hr>
+    <div class="container">
+        <table class="table">
+            <thead>
+                <tr class="align-middle text-center">
+                    <th width="7%">編號</th>
+                    <th>產品</th>
+                    <th>單價</th>
+                    <th>數量</th>
+                    <th>小計</th>
+                    <th> </th>
+                </tr>
+            </thead>
+            <tbody id="myItem">
+
+                <tr class="align-middle text-center">
+                    <td>1</td>
+                    <td>
+                        <h4>拿鐵</h4>
+                        <p class="align-middle"><img
+                                src="https://images.unsplash.com/photo-1541167760496-1628856ab772?q=250&w=250&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                                alt=""></p>
+                    </td>
+                    <td>
+                        <input type="number" class="itemPrice form-control text-center" name="" data-price="160"
+                            value="160">
+                    </td>
+                    <td>
+                        <input type="number" class="itemNum form-control text-center" name="" data-num="1" value="1">
+                    </td>
+                    <td>
+                        <input type="number" class="itemTotal form-control text-center" name="" data-total="160"
+                            readonly>
+                    </td>
+                    <td>
+                        <button class="myDel btn btn-danger text-center"><i class="fa-solid fa-trash"></i></button>
+                    </td>
+                </tr>
+                <tr class="align-middle text-center">
+                    <td>2</td>
+
+                    <td>
+
+                        <h4>美式</h4>
+                        <p class="align-middle"><img
+                                src="https://images.unsplash.com/photo-1509785307050-d4066910ec1e?q=250&w=250&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                                alt=""></p>
+                    </td>
+                    <td><input type="number" class="itemPrice form-control text-center" name="" data-price="100"
+                            value="100"></td>
+                    <td><input type="number" class="itemNum form-control text-center" name="" data-num="1" value="1">
+                    </td>
+                    <td><input type="number" class="itemTotal form-control text-center" name="" data-total="100"
+                            readonly></td>
+                    <td> <button class="myDel btn btn-danger text-center"><i class="fa-solid fa-trash"></i></button>
+                    </td>
+
+                </tr>
+                <tr class="align-middle text-center">
+                    <td>3</td>
+
+                    <td>
+                        <h4>摩卡</h4>
+                        <p class="align-middle"><img
+                                src="https://images.unsplash.com/photo-1473923377535-0002805f57e8?q=250&w=250&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                                alt=""></p>
+                    </td>
+                    <td><input type="number" class="itemPrice form-control text-center" name="" data-price="160"
+                            value="160"></td>
+                    <td><input type="number" class="itemNum form-control text-center" name="" data-num="1" value="1">
+                    </td>
+                    <td><input type="number" class="itemTotal form-control text-center" name="" data-total="160"
+                            readonly></td>
+                    <td> <button class="myDel btn btn-danger text-center"><i class="fa-solid fa-trash"></i></button>
+                    </td>
+
+                </tr>
+
+
+            </tbody>
+            <tfoot>
+                <tr class="align-middle text-center">
+                    <td>
+                    <td>
+                        <h4>總和</h4>
+                    </td>
+                    <td colspan="2"></td>
+                    <td>
+                        <h4><span id="resultSpan" style="color:red;"></span></h4>
+                    </td>
+                </tr>
+            </tfoot>
+        </table>
+
+        <div class="row">
+            <div class="">
+                <div class="d-grid gap-2  justify-content-end">
+                    <button class="btn btn-primary myBtn" id="myBtn" type="button">送出(滿五百打八折)</button>
+                </div>
+            </div>
+            <!-- <div class="col-6">
+                    <div class="d-grid gap-2">
+                        <button class="btn btn-warning myBtn2" type="reset">Button2</button>
+                    </div>
+                </div> -->
+        </div>
+
+    </div>
+
+    <!-- jQuery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        $(document).ready(function () {
+            function delFun(nowThis) {
+                console.log('nowThis', nowThis);
+                // myDel的上上一層
+                let nowTr = $(nowThis).parent().parent();
+                console.log(nowTr);
+                nowTr.remove();
+            }
+
+            const myDel = $(".myDel");
+            const myItem = $("#myItem");
+            const myChoose = $(".my-choose");
+            const myBtn = $(".myBtn");
+
+            myDel.click(function (e) {
+                console.log('this', this);
+
+                delFun(this);
+
+            })
+
+
+            myChoose.click(function () {
+                console.log('this', this);
+                let id = $(this).data('id');
+                let name = $(this).data('name');
+                let price = $(this).data('price');
+                let img = $(this).data('img');
+
+                let content = `
+                <tr class="align-middle text-center">
+                    <td>${id}</td>
+                    <td>
+                        <h4>${name}</h4>
+                        <p class="align-middle"><img
+                                src="${img}"
+                                alt=""></p>
+                    </td>
+                    <td>
+                        <input type="number" class="itemPrice form-control text-center" name="" data-price="${price}"
+                            value="${price}">
+                    </td>
+                    <td>
+                        <input type="number" class="itemNum form-control text-center" name="" data-num="1" value="1">
+                    </td>
+                    <td>
+                        <input type="number" class="itemTotal form-control text-center" name="" data-total="160"
+                            readonly>
+                    </td>
+                    <td>
+                        <button class="myDel btn btn-danger text-center"><i class="fa-solid fa-trash"></i></button>
+                    </td>
+                </tr>`;
+                $("#myItem").append(content)
+                // addDelBtn = $('.myDel').last();
+
+                // addDelBtn.click(function () {
+                //     delFun(this);
+
+                // })
+
+            })
+
+
+
+            myBtn.click(function () {
+                console.log('this', this);
+
+
+            })
+
+        })
+
+    </script>
+
+</body>
+
+</html>
