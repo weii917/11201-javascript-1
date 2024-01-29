@@ -148,13 +148,13 @@
             </tbody>
             <tfoot>
                 <tr class="align-middle text-center">
-                    
+
                     <td>
                         <h4>總和</h4>
                     </td>
                     <td colspan="4"></td>
                     <td>
-                        <h4><span id="resultSpan" style="color:red;"></span></h4>
+                        <h4><span id="mySum" style="color:red;">0</span></h4>
                     </td>
                 </tr>
             </tfoot>
@@ -163,7 +163,7 @@
         <div class="row mb-3">
             <div class="">
                 <div class="d-grid gap-2  justify-content-end">
-                    <button class="btn btn-primary myBtn" id="myBtn" type="button">送出</button>
+                    <button class="btn btn-primary myBtn" id="sumBtn" type="button">送出</button>
                 </div>
             </div>
             <!-- <div class="col-6">
@@ -181,6 +181,24 @@
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script>
         $(document).ready(function () {
+            // total
+
+            function sumFun() {
+                console.log('sumBtn ok');
+                let myTotal = $('.myTotal');
+                let getMyTotalCount = myTotal.length;
+                console.log('myTotal', myTotal);
+                let sum = 0;
+                myTotal.each(function (index, value) {
+                    console.log('index', index);
+                    console.log('value', value);
+                    sum = sum + Number($(value).text());
+                });
+                console.log('final sum', sum);
+                mySum.text(sum);
+            }
+
+
             // del 可全刪光
             function delFun(nowThis) {
                 console.log('nowThis', nowThis);
@@ -188,6 +206,7 @@
                 let nowTr = $(nowThis).parent().parent();
                 console.log(nowTr);
                 nowTr.remove();
+                sumFun();
             }
             // 抓tr數量小於本頁面的多少不能刪除，至少留一筆
             function delFunHave1(nowThis) {
@@ -213,6 +232,8 @@
                 // nowTr.clone(true).appendTo("#myItem");
                 // 新增在此筆的下一個tr
                 nowTr.clone(true).insertAfter(nowTr);
+                sumFun();
+                
             }
             // 綁定
             const myClone = $(".myClone");
@@ -220,12 +241,16 @@
             const myItem = $("#myItem");
             const myChoose = $(".my-choose");
             const myBtn = $(".myBtn");
-            // 價格綁定
-            const itemPrice = $(".itemPrice");
-            const itemNum = $(".itemNum");
-            const itemTotal = $(".itemTotal");
+            const mySum = $('#mySum');
+            const sumBtn = $('#sumBtn');
+
+
+
 
             // 執行
+            sumBtn.click(function (e) {
+                sumFun();
+            });
             myClone.click(function (e) {
                 console.log('this', this);
 
@@ -255,15 +280,15 @@
                                 alt=""></p>
                     </td>
                     <td>
-                        <input type="number" class="itemPrice form-control text-center" name="" data-price="${price}"
+                        <input readonly type="number" class="itemPrice form-control text-center" name="" data-price="${price}"
                             value="${price}">
                     </td>
                     <td>
-                        <input type="number" class="itemNum form-control text-center" name="" data-num="0" value="0">
+                        <input type="number" class="quantity itemNum form-control text-center" name="" data-num="1" value="1">
                     </td>
                     <td>
-                        <input type="number" class="itemTotal form-control text-center" name="" data-total="160"
-                            readonly>
+                      
+                        <span class="myTotal">${price}</span>
                     </td>
                     <td>
                         <input type="text" class=" form-control text-center"  name="" id="">
@@ -279,6 +304,9 @@
                 // 新增最後一個刪除添加刪除事件
                 addDelBtn = $('.myDel').last();
                 addCloneBtn = $('.myClone').last();
+                addQuantity = $('.quantity').last();
+                sumFun();
+
                 addDelBtn.click(function () {
                     delFun(this);
                 })
@@ -286,56 +314,24 @@
                     cloneFun(this);
                 })
 
-            })
+                // addQuantity
+                // 當數量被改變，抓取上上個父層，來找下面的myTotal，才能填進數字
+                addQuantity.change(function (e) {
+                    let getQuantity = Number($(this).val());
+                    let closestQuantityTr = $(this).parent().parent();
+                    let findTotal = closestQuantityTr.find('.myTotal');
+                    console.log('closestQuantityTr', closestQuantityTr);
+                    console.log('getQuantity', getQuantity);
+                    let total = getQuantity * price;
+                    console.log('total', total);
+                    findTotal.text(total);
 
-            // start
-            function calTotal(){}
-            myItem.on('input', '.itemNum, .itemPrice', function () {
-                let tr = $(this).closest('tr');
-                console.log('tr',tr);
-                let price = parseFloat(tr.find('.itemPrice').val());
-                let num = parseFloat(tr.find('.itemNum').val());
-
-                // 計算小計
-                let total = price * num;
-                tr.find('.itemTotal').val(total);
-
-                // 更新產品數據屬性
-                tr.data('subtotal', total);
-
-                // 計算總和
-                calculateGrandTotal();
-            });
-
-            // 計算所有小計的總和
-            function calculateGrandTotal() {
-                let grandTotal = 0;
-
-                // 遍歷每個產品，取得小計並相加
-                $('.itemTotal').each(function () {
-                    grandTotal += parseFloat($(this).val()) || 0;
+                    sumFun();
                 });
 
-                // 顯示總和
-                $("#resultSpan").text(grandTotal);
-            }
+            })
 
-            // 送出按鈕點擊事件
-            // myBtn.click(function () {
-            //     console.log('this', this);
 
-            //     計算總和
-            //     calculateGrandTotal();
-            // });
-            // end
-            // 總和
-            // myBtn.click(function () {
-            //     console.log('this', this);
-            //     nowTr = $('.itemPrice').parent().parent();
-            //     console.log('nowTr', nowTr);
-            //     nowTr
-
-            // })
 
         })
 
