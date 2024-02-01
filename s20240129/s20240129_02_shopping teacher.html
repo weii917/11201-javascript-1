@@ -14,6 +14,25 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
         crossorigin="anonymous"></script>
+        <style>
+            body{
+                /* background: #f5d39953; */
+            }
+            .cafe-btn{
+                background-color: rgba(0, 0, 0, 0.97);
+                color: #ffffff;
+            }
+        
+            .dessert-btn:hover,.cafe-btn:hover{
+                background-color: rgba(103, 103, 103, 0.97);
+                color: #fbfbfb;
+                font-size: large;
+            }
+            .dessert-btn{
+                color: rgba(0, 0, 0, 0.97);
+               border:1px solid rgba(0, 0, 0, 0.97);
+            }
+        </style>
 </head>
 
 <body>
@@ -22,22 +41,22 @@
             <h2>Store</h2>
             <!-- <p>The .table class adds basic styling (light padding and horizontal dividers) to a table:</p> -->
             <div class="col mt-3">
-                <button class="my-choose btn btn-warning mx-2" data-id="1" data-name="拿鐵" data-price="160"
+                <button class="cafe-btn my-choose btn mx-2" data-id="1" data-name="拿鐵" data-price="160"
                     data-img="https://images.unsplash.com/photo-1541167760496-1628856ab772?q=250&w=250&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D">拿鐵</button>
-                <button class="my-choose btn btn-warning mx-2" data-id="2" data-name="美式" data-price="100"
+                <button class="cafe-btn my-choose btn mx-2" data-id="2" data-name="美式" data-price="100"
                     data-img="https://images.unsplash.com/photo-1509785307050-d4066910ec1e?q=250&w=250&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D">美式</button>
-                <button class="my-choose btn btn-warning mx-2" data-id="3" data-name="摩卡" data-price="160"
+                <button class="cafe-btn my-choose btn mx-2" data-id="3" data-name="摩卡" data-price="160"
                     data-img="https://images.unsplash.com/photo-1473923377535-0002805f57e8?q=250&w=250&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D">摩卡</button>
 
             </div>
         </div>
         <div class="row">
             <div class="col mt-3">
-                <button class="my-choose btn btn-success mx-2" data-id="4" data-name="起司蛋糕" data-price="180"
+                <button class="dessert-btn my-choose btn mx-2" data-id="4" data-name="起司蛋糕" data-price="180"
                     data-img="https://images.unsplash.com/photo-1473340186413-a68ba9c2564e?q=250&w=250&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D">起司蛋糕</button>
-                <button class="my-choose btn btn-success mx-2" data-id="5" data-name="鬆餅" data-price="120"
+                <button class="dessert-btn my-choose btn mx-2" data-id="5" data-name="鬆餅" data-price="120"
                     data-img="https://images.unsplash.com/photo-1562376552-0d160a2f238d?q=250&w=250&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D">鬆餅</button>
-                <button class="my-choose btn btn-success mx-2" data-id="6" data-name="冰淇淋" data-price="160"
+                <button class="dessert-btn my-choose btn mx-2" data-id="6" data-name="冰淇淋" data-price="160"
                     data-img="https://images.unsplash.com/photo-1515037028865-0a2a82603f7c?q=250&w=250&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D">冰淇淋</button>
 
             </div>
@@ -97,8 +116,8 @@
         </table>
         <div class="row justify-content-end text-end">
             <div class="col d-flex">
-                <h4 class="ms-auto">總金額:</h4>
-                <h4>NT$ <span id="mySum" style="color:red;"> 0 </span></h4>
+                <h5 class="ms-auto p-3">總金額:</h5>
+                <h1>NT$ <span id="mySum" style="color:rgb(110, 93, 48);"> 0 </span></h1>
             </div>
         </div>
         <div class="row mb-3">
