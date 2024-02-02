@@ -16,16 +16,15 @@
 </head>
 
 <body>
-    <h1>datatable介紹</h1>
-    <table id="table_id" class="display">
-        <tr>
-            <!-- <th>id</th>
-            <th>name</th>
-            <th>location</th>
-            <th>web</th> -->
-
-        </tr>
-    </table>
+  <div class="container" id="myContainer">
+    <div class="row">
+        <div class="col-2">id</div>
+        <div class="col-2">name</div>
+        <div class="col-2">price</div>
+        <div class="col-2">location</div>
+        <div class="col-2">web</div>
+    </div>
+  </div>
 
     <!-- <form action="./data/factory.json"></form> -->
 
@@ -37,7 +36,7 @@
 
     <script>
         $(document).ready(function () {
-            const myContainer = $("#myConatiner")
+            const myContainer = $("#myContainer")
             let url = './data/factory.json';
 
 
@@ -48,18 +47,20 @@
                 dataType: "json",
                 success: function (res) {
                    
-                    $('#table_id').DataTable({
-                        "data": res,
-                        "columns": [ //列的標題一般是從DOM中讀取（也可以使用這個屬性為表格創建列標題)
-                            { data: 'id', title: "id" },
-                            { data: 'area', title: "地區" },
-                            { data: 'city', title: "縣市" },
-                            { data: 'name', title: "名稱" },
-                            { data: 'location', title: "地址" },
-                            { data: 'web', title: "web" },
-                        ]
+                    $.each(res, function (key, value) {
+                        console.log('key',key);
+                        console.log('value',value); 
+                        let content =`  <div class="row">
+                                            <div class="col-2">${value.id}</div>
+                                            <div class="col-2">${value.name}</div>
+                                            <div class="col-2">${value.area}</div>
+                                            <div class="col-2">${value.city}</div>
+                                            <div class="col-2">${value.location}</div>
+                                            <div class="col-2">${value.web}</div>
+                                        </div>`
+                         
+                                        myContainer.append(content);
                     });
-
                 }
             });
 
