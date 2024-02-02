@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Use jQuery get data</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- dataTables套件 css -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.min.css">
+    <!--  -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+
+<body>
+    <h1>datatable介紹</h1>
+    <table id="table_id" class="display">
+        <tr>
+            <!-- <th>id</th>
+            <th>name</th>
+            <th>location</th>
+            <th>web</th> -->
+
+        </tr>
+    </table>
+
+    <!-- <form action="./data/factory.json"></form> -->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!-- dataTables套件 js -->
+    <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            const myContainer = $("#myConatiner")
+            let url = './data/factory.json';
+
+
+            $.ajax({
+                type: "get",
+                url: url,
+                data: "data",
+                dataType: "json",
+                success: function (res) {
+                   
+                    $('#table_id').DataTable({
+                        "data": res,
+                        "columns": [ //列的標題一般是從DOM中讀取（也可以使用這個屬性為表格創建列標題)
+                            { data: 'id', title: "id" },
+                            { data: 'area', title: "地區" },
+                            { data: 'city', title: "縣市" },
+                            { data: 'name', title: "名稱" },
+                            { data: 'location', title: "地址" },
+                            { data: 'web', title: "web" },
+                        ]
+                    });
+
+                }
+            });
+
+
+
+
+        });
+
+
+
+    </script>
+</body>
+
+</html>
