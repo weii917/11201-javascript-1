@@ -20,9 +20,11 @@
     <table class="table table-hover display" id="myTable">
       <thead>
         <tr>
-          <th width="30%" class="text-center">id</th>
+          <th width="10%" class="text-center">id</th>
           <th class="text-start">name</th>
-          <th class="text-start">temprature</th>
+          <th class="text-start" id="title12">12hr temprature</th>
+          <th class="text-start" id="title24">24hr temprature</th>
+          <th class="text-start" id="title36">36hr temprature</th>
         </tr>
       </thead>
       <tbody>
@@ -43,7 +45,10 @@
   <script>
     // weather api
     let url = weatherapi;
-    const myTable=$('#myTable')
+    const myTable = $('#myTable')
+    const title12 = $('#title12')
+    const title24 = $('#title24')
+    const title36 = $('#title36')
     $(document).ready(function () {
       $.ajax({
         type: "get",
@@ -63,29 +68,54 @@
             // console.log('value.locationName',value.locationName);
             let nowID = String(key + 1);
             let stringID = nowID.padStart(2, "0");
-            
+
             // console.log('stringID', stringID);
             let nowLocationName = value.locationName;
+            // 12start
             let nowLocationMaxT = value.weatherElement[4].time[0]['parameter'].parameterName;
             let nowLocationMinT = value.weatherElement[2].time[0]['parameter'].parameterName;
             let nowLocationWxName = value.weatherElement[0].time[0]['parameter'].parameterName;
             let nowLocationWxValue = value.weatherElement[0].time[0]['parameter'].parameterValue;
-            let imgUrl = nowLocationWxValue+'.svg';
-            
+            let imgUrl = nowLocationWxValue + '.svg';
+            // 12end
+            // 24start
+            let nowLocationMaxT_24 = value.weatherElement[4].time[1]['parameter'].parameterName;
+            let nowLocationMinT_24 = value.weatherElement[2].time[1]['parameter'].parameterName;
+            let nowLocationWxName_24 = value.weatherElement[0].time[1]['parameter'].parameterName;
+            let nowLocationWxValue_24 = value.weatherElement[0].time[1]['parameter'].parameterValue;
+            let imgUrl_24 = nowLocationWxValue + '.svg';
+            // 24end
+            // 36start
+            let nowLocationMaxT_36 = value.weatherElement[4].time[2]['parameter'].parameterName;
+            let nowLocationMinT_36 = value.weatherElement[2].time[2]['parameter'].parameterName;
+            let nowLocationWxName_36 = value.weatherElement[0].time[2]['parameter'].parameterName;
+            let nowLocationWxValue_36 = value.weatherElement[0].time[2]['parameter'].parameterValue;
+            let imgUrl_36 = nowLocationWxValue + '.svg';
+            // 36end
+
+            let title12Text = value.weatherElement[0].time[0].startTime;
+            let title24Text = value.weatherElement[0].time[1].startTime;
+            let title36Text = value.weatherElement[0].time[2].startTime;
+            title12.text(title12Text)
+            title24.text(title24Text)
+            title36.text(title36Text)
+
             console.log(nowLocationName);
-            console.log('nowLocationMaxT',nowLocationMaxT);
-            console.log('nowLocationMinT',nowLocationMinT);
+            console.log('nowLocationMaxT', nowLocationMaxT);
+            console.log('nowLocationMinT', nowLocationMinT);
             let content = `
                             <tr>
                               <td class="text-center">${stringID}</td>
                               <td class="text-start">${nowLocationName}</td>
-                              <td class="text-start">${nowLocationMinT} - ${nowLocationMaxT} °C ${nowLocationWxName} <img src="./img/day/${imgUrl}" alt=""></td>
+                              <td class="text-start">${nowLocationMinT} - ${nowLocationMaxT} °C  ${nowLocationWxName}  <img src="./img/day/${imgUrl}" alt=""></td>
+                              <td class="text-start">${nowLocationMinT_24} - ${nowLocationMaxT_24} °C ${nowLocationWxName_24} <img src="./img/day/${imgUrl_24}" alt=""></td>
+                              <td class="text-start">${nowLocationMinT_36} - ${nowLocationMaxT_36} °C ${nowLocationWxName_36} <img src="./img/day/${imgUrl_36}" alt=""></td>
                               </tr>`;
             $('tbody').append(content);
           })
           myTable.DataTable();
         }
-        
+
       });
     });
   </script>
