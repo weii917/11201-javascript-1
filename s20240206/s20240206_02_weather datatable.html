@@ -22,6 +22,7 @@
         <tr>
           <th width="30%" class="text-center">id</th>
           <th class="text-start">name</th>
+          <th class="text-start">temprature</th>
         </tr>
       </thead>
       <tbody>
@@ -42,6 +43,7 @@
   <script>
     // weather api
     let url = weatherapi;
+    const myTable=$('#myTable')
     $(document).ready(function () {
       $.ajax({
         type: "get",
@@ -49,26 +51,37 @@
         // data: "data",
         // dataType: "dataType",
         success: function (res) {
-          console.log('res', res);
-          console.log('res.records.location', res.records.location);
+          // console.log('res', res);
+          // console.log('res.records.location', res.records.location);
           let nowLocation = res.records.location;
+          let nowLocationMaxT = res.records.location[1].weatherElement[4]['time'][0]['parameter']['parameterName'];
+          console.log('nowLocationMaxT', nowLocationMaxT);
+          console.log('nowLocation', nowLocation);
           $.each(nowLocation, function (key, value) {
             // console.log('key',key);
             // console.log('value',value);
             // console.log('value.locationName',value.locationName);
             let nowID = String(key + 1);
             let stringID = nowID.padStart(2, "0");
+            
             // console.log('stringID', stringID);
             let nowLocationName = value.locationName;
+            let nowLocationMaxT = value.weatherElement[4]['time'][0]['parameter']['parameterName'];
+            let nowLocationMinT = value.weatherElement[2]['time'][0]['parameter']['parameterName'];
+            
             console.log(nowLocationName);
+            console.log('nowLocationMaxT',nowLocationMaxT);
+            console.log('nowLocationMinT',nowLocationMinT);
             let content = `
                             <tr>
                               <td class="text-center">${stringID}</td>
                               <td class="text-start">${nowLocationName}</td>
-                            </tr>`;
+                              <td class="text-start">${nowLocationMinT} - ${nowLocationMaxT} °C</td>
+                              </tr>`;
             $('tbody').append(content);
           })
         }
+        
       });
     });
   </script>
