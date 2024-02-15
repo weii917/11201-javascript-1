@@ -21,16 +21,10 @@
 
   <script>
     $(document).ready(function () {
-      // 不同 domain cors error
-      // front 127.0.0.1 ex.live server open
-      // back localhost
-
-      // 同 domain cors fix 
-      // front localhost ex. php xampp open
-      // back localhost
-
-    //   let url = 'http://localhost/s20240215/s20240215_03_php_back.php';
-      let url = './s20240215_03_php_back.php';
+      // 這個用相對路徑方式可以用localhost開
+      // let url = './s20240215_04_php_zoo.php';
+      // 這個要用絕對路徑方式liverserver 及外部才打得開
+      let url = 'http://localhost/s20240215/s20240215_04_php_zoo.php';
       $.ajax({
         type: "get",
         url: url,
@@ -41,7 +35,6 @@
         }
       });
     });
-
 
   </script>
 </body>
